@@ -3,40 +3,37 @@ package com.niit.shoppingcart.dao.impl;
 import java.util.List;
 
 import org.hibernate.HibernateException;
-
 import org.hibernate.SessionFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 import org.springframework.transaction.annotation.Transactional;
 
-import com.niit.shoppingcart.dao.CategoryDAO;
-import com.niit.shoppingcart.model.Category;
+import com.niit.shoppingcart.dao.ProductDAO;
+import com.niit.shoppingcart.model.Product;
 
-@Repository("categoryDAO")
+@Repository("productDAO")
 
-public class CategoryDAOImpl implements CategoryDAO{
+public class ProductDAOImpl implements ProductDAO {
 	
 	@Autowired
 	SessionFactory sessionFactory;
 	
-	public CategoryDAOImpl(SessionFactory sessionFactory)
+	public ProductDAOImpl(SessionFactory sessionFactory)
 	{
-		
-			this.sessionFactory=sessionFactory;
-		
+		this.sessionFactory=sessionFactory;
 	}
 
 	@Transactional
-	public boolean save(Category category) {
+	public boolean save(Product product) {
 		
 	try{
 		
-		if(get(category.getId())!=null)
+		if(get(product.getId())!=null)
 		{
 			return false;
 		}
 		
-		sessionFactory.getCurrentSession().save(category);
+		sessionFactory.getCurrentSession().save(product);
 		
 		return true;
 		
@@ -57,15 +54,15 @@ public class CategoryDAOImpl implements CategoryDAO{
 	
 	@Transactional
 	
-	public boolean update(Category category) {
+	public boolean update(Product product) {
 		
 		try{
-			if(get(category.getId())!=null)
+			if(get(product.getId())!=null)
 			{
 				return false;
 			}
 			
-			sessionFactory.getCurrentSession().update(category);
+			sessionFactory.getCurrentSession().update(product);
 			
 			return true;
 			
@@ -84,22 +81,22 @@ public class CategoryDAOImpl implements CategoryDAO{
 	
 	@Transactional
 
-	public Category get(String id) {
+	public Product get(String id) {
 		
-		return(Category) sessionFactory.openSession().get(Category.class,id);
+		return(Product) sessionFactory.openSession().get(Product.class,id);
 	}
 	
 	
 	@Transactional
-	public boolean delete(Category category) {
+	public boolean delete(Product product) {
 		
 		try{
-			if(get(category.getId())!=null)
+			if(get(product.getId())!=null)
 			{
 				return false;
 			}
 			
-			sessionFactory.getCurrentSession().delete(category);
+			sessionFactory.getCurrentSession().delete(product);
 			
 			return true;
 			
@@ -115,10 +112,10 @@ public class CategoryDAOImpl implements CategoryDAO{
 		
 	}
 
-	public List<Category> list() {
+	public List<Product> list() {
 		return null;
 		
-		/*String hql="from category";
+		/*String hql="from product";
 		
 		Query query=sessionFactory.getCurrentSession().createQuery(hql);
 		

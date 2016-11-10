@@ -1,6 +1,6 @@
 package com.niit.backend;
 
-import static org.junit.Assert.*;
+/*import static org.junit.Assert.*;*/
 
 import org.junit.Assert;
 import org.junit.BeforeClass;
@@ -25,19 +25,21 @@ public class CategoryTestCases {
 	
 	
 	@Autowired
-	static CategoryDAO  CategoryDAO;
+	static CategoryDAO categoryDAO;
+
+
 	
 	
 	@BeforeClass
 	 public static void inti()
 	 {
 		 context =  new  AnnotationConfigApplicationContext();
-		 context.scan("com.niit.backend");
+		 context.scan("com.niit");
 		 context.refresh();
 		 
-		 CategoryDAO categoryDAO = (CategoryDAO) context.getBean("CategoryDAO");
+		 categoryDAO  = (CategoryDAO) context.getBean("categoryDAO");
 		 
-		 Category category = (Category) context.getBean("category");
+		 category  = (Category) context.getBean("category");
 		 
 		 System.out.println("The object is created");
 	 }
@@ -45,25 +47,27 @@ public class CategoryTestCases {
 	@Test
 	public void createCategoryTestCase()
 	{
-		category.setId("5");
+		category.setId("4");
 		
-		category.setName("Salwar");
+		category.setName("Dress");
 		
-		Boolean status = CategoryDAO.save(category);
+		Boolean status = categoryDAO.save(category);
 		
-		Assert.assertEquals("create Category Test case",true, status);
+		Assert.assertEquals("createCategoryTestcase", true, status);
 	}
 	
+	
+	
 
-	@Test
+	/*@Test
 	public void deleteCategoryTestCase()
 	{
-		category.setId("4");
-		boolean status = CategoryDAO.delete(category);
+		category.setId("3");
+		boolean status = categoryDAO.delete(category);
 		
 		Assert.assertEquals("delete Category Test case",true, status);
 	}
-
+*/
 
 
 
