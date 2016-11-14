@@ -2,8 +2,6 @@ package com.niit.shoppingcart.dao.impl;
 
 import java.util.List;
 
-import org.hibernate.HibernateException;
-
 import org.hibernate.SessionFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
@@ -30,11 +28,11 @@ public class CategoryDAOImpl implements CategoryDAO{
 	public boolean save(Category category) {
 		
 	try{
-		
+		/*
 		if(get(category.getId())!=null)
 		{
 			return false;
-		}
+		}*/
 		
 		sessionFactory.getCurrentSession().save(category);
 		
@@ -42,7 +40,7 @@ public class CategoryDAOImpl implements CategoryDAO{
 		
 	}
 	
-	catch (HibernateException e){
+	catch (Exception e){
 		
 		e.printStackTrace();
 		
@@ -65,13 +63,13 @@ public class CategoryDAOImpl implements CategoryDAO{
 				return false;
 			}
 			
-			sessionFactory.getCurrentSession().update(category);
+			sessionFactory.openSession().update(category);
 			
 			return true;
 			
 		}
 		
-		catch (HibernateException e){
+		catch (Exception e){
 			
 			e.printStackTrace();
 			
@@ -94,18 +92,18 @@ public class CategoryDAOImpl implements CategoryDAO{
 	public boolean delete(Category category) {
 		
 		try{
-			if(get(category.getId())!=null)
+			/*if(get(category.getId())!=null)
 			{
 				return false;
-			}
+			}*/
 			
-			sessionFactory.getCurrentSession().delete(category);
+			sessionFactory.openSession().delete(category);
 			
 			return true;
 			
 		}
 		
-		catch (HibernateException e){
+		catch (Exception e){
 			
 			e.printStackTrace();
 			

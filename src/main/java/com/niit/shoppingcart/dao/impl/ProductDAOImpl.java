@@ -28,11 +28,11 @@ public class ProductDAOImpl implements ProductDAO {
 		
 	try{
 		
-		if(get(product.getId())!=null)
+		/*if(get(product.getId())!=null)
 		{
 			return false;
 		}
-		
+		*/
 		sessionFactory.getCurrentSession().save(product);
 		
 		return true;
@@ -119,8 +119,8 @@ public class ProductDAOImpl implements ProductDAO {
 		
 		Query query=sessionFactory.getCurrentSession().createQuery(hql);
 		
-		return query.list();*/
-		
+		return query.list();
+		*/
 		
 	}
 

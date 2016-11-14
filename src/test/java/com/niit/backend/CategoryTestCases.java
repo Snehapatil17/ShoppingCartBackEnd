@@ -47,9 +47,9 @@ public class CategoryTestCases {
 	@Test
 	public void createCategoryTestCase()
 	{
-		category.setId("4");
+		category.setId("3");
 		
-		category.setName("Dress");
+		category.setName("Lehengas");
 		
 		Boolean status = categoryDAO.save(category);
 		
@@ -58,11 +58,12 @@ public class CategoryTestCases {
 	
 	
 	
+	
 
 	/*@Test
 	public void deleteCategoryTestCase()
 	{
-		category.setId("3");
+		category.setId("4");
 		boolean status = categoryDAO.delete(category);
 		
 		Assert.assertEquals("delete Category Test case",true, status);
