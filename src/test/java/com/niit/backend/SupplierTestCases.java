@@ -47,15 +47,15 @@ public class SupplierTestCases {
 	@Test
 	public void createSupplierTestCase()
 	{
-		supplier.setId("12");
+		supplier.setId("14");
 		
-		supplier.setName("Sagar");
+		supplier.setName("Pratiksha");
 		
-		supplier.setAddress("Nagpur");
+		supplier.setAddress("Aurngabad");
 		
 		Boolean status = supplierDAO.save(supplier);
 		
-		Assert.assertEquals("create Supplier Test case",true, status);
+		Assert.assertEquals("createSupplierTestcase",true, status);
 	}
 	
 

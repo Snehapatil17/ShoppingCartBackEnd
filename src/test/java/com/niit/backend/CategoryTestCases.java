@@ -2,6 +2,7 @@ package com.niit.backend;
 
 /*import static org.junit.Assert.*;*/
 
+
 import org.junit.Assert;
 import org.junit.BeforeClass;
 import org.junit.Test;
@@ -47,9 +48,9 @@ public class CategoryTestCases {
 	@Test
 	public void createCategoryTestCase()
 	{
-		category.setId("3");
+		category.setId("5");
 		
-		category.setName("Lehengas");
+		category.setName("Plazo");
 		
 		Boolean status = categoryDAO.save(category);
 		

@@ -2,39 +2,41 @@ package com.niit.shoppingcart.dao.impl;
 
 import java.util.List;
 
-//import org.hibernate.HibernateException;
-
 import org.hibernate.SessionFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 import org.springframework.transaction.annotation.Transactional;
 
-import com.niit.shoppingcart.dao.SupplierDAO;
-import com.niit.shoppingcart.model.Supplier;
+import com.niit.shoppingcart.dao.UserDAO;
+import com.niit.shoppingcart.model.User;
 
-@Repository("supplierDAO")
 
-	public class SupplierDAOImpl implements SupplierDAO{
+	
+	@Repository("userDAO")
+
+	public class UserDAOImpl implements UserDAO{
 		
 		@Autowired
 		SessionFactory sessionFactory;
 		
-		public SupplierDAOImpl(SessionFactory sessionFactory)
+		public UserDAOImpl(SessionFactory sessionFactory)
 		{
-			this.sessionFactory=sessionFactory;
+			
+				this.sessionFactory=sessionFactory;
+			
 		}
 
 		@Transactional
-		public boolean save(Supplier supplier) {
+		public boolean save(User user) {
 			
 		try{
 			/*
-			if(get(supplier.getId())!=null)
+			if(get(user.getId())!=null)
 			{
 				return false;
 			}*/
 			
-			sessionFactory.getCurrentSession().save(supplier);
+			sessionFactory.getCurrentSession().save(user);
 			
 			return true;
 			
@@ -55,15 +57,15 @@ import com.niit.shoppingcart.model.Supplier;
 		
 		@Transactional
 		
-		public boolean update(Supplier supplier) {
+		public boolean update(User user) {
 			
 			try{
-				/*if(get(supplier.getId())!=null)
+				/*if(get(user.getId())!=null)
 				{
 					return false;
-				}*/
-				
-				sessionFactory.getCurrentSession().update(supplier);
+				}
+				*/
+				sessionFactory.openSession().update(user);
 				
 				return true;
 				
@@ -82,22 +84,22 @@ import com.niit.shoppingcart.model.Supplier;
 		
 		@Transactional
 
-		public Supplier get(String id) {
+		public User get(String id) {
 			
-			return(Supplier) sessionFactory.openSession().get(Supplier.class,id);
+			return(User) sessionFactory.openSession().get(User.class,id);
 		}
 		
 		
 		@Transactional
-		public boolean delete(Supplier supplier) {
+		public boolean delete(User user) {
 			
 			try{
-				/*if(get(supplier.getId())!=null)
+				/*if(get(user.getId())!=null)
 				{
 					return false;
 				}*/
 				
-				sessionFactory.getCurrentSession().delete(supplier);
+				sessionFactory.openSession().delete(user);
 				
 				return true;
 				
@@ -113,10 +115,10 @@ import com.niit.shoppingcart.model.Supplier;
 			
 		}
 
-		public List<Supplier> list() {
+		public List<User> list() {
 			return null;
 			
-			/*String hql="from supplier";
+			/*String hql="from user";
 			
 			Query query=sessionFactory.getCurrentSession().createQuery(hql);
 			
@@ -124,7 +126,9 @@ import com.niit.shoppingcart.model.Supplier;
 			
 			
 		}
-	}
+	
+	
+	
 	
 
-
+}

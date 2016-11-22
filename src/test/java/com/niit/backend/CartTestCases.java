@@ -1,28 +1,29 @@
 package com.niit.backend;
 
-
-
 import org.junit.Assert;
 import org.junit.BeforeClass;
+
+//import static org.junit.Assert.*;
+
 import org.junit.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.AnnotationConfigApplicationContext;
 
-import com.niit.shoppingcart.dao.ProductDAO;
-import com.niit.shoppingcart.model.Product;
+import com.niit.shoppingcart.dao.CartDAO;
+import com.niit.shoppingcart.model.Cart;
 
-public class ProductTestCases {
+public class CartTestCases {
 
 	@Autowired
 	 static AnnotationConfigApplicationContext context;
 	
 	
 	@Autowired
-	static Product product;
+	static Cart cart;
 	
 	
 	@Autowired
-	static ProductDAO productDAO;
+	static CartDAO cartDAO;
 
 
 	
@@ -34,27 +35,39 @@ public class ProductTestCases {
 		 context.scan("com.niit");
 		 context.refresh();
 		 
-		 productDAO  = (ProductDAO) context.getBean("productDAO");
+		 cartDAO  = (CartDAO) context.getBean("cartDAO");
 		 
-		 product  = (Product) context.getBean("product");
+		 cart  = (Cart) context.getBean("cart");
 		 
 		 System.out.println("The object is created");
 	 }
-
+ 
 	@Test
-	public void createProductTestCase()
+	public void createCartTestCase()
 	{
-		product.setId("22");
+		cart.setId("111");
 		
-		product.setName("Plazo");
+		cart.setBillingaddr("Pune");
 		
-		product.setPrice("600");
+		cart.setShippingaddr("Dhanori");
 		
-		Boolean status = productDAO.save(product);
+		cart.setPaymentmode("COD");
 		
-		Assert.assertEquals("createProductTestcase", true, status);
+		Boolean status = cartDAO.save(cart);
+		
+		Assert.assertEquals("createCartTestcase", true, status);
 	}
 	
 	
+	
+	
+
+
+
+
+
 
 }
+
+
+

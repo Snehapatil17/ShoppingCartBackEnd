@@ -7,24 +7,17 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 import org.springframework.transaction.annotation.Transactional;
 
-import com.niit.shoppingcart.dao.CategoryDAO;
-import com.niit.shoppingcart.model.Category;
+import com.niit.shoppingcart.dao.CartDAO;
+import com.niit.shoppingcart.model.Cart;
 
-@Repository("categoryDAO")
+@Repository("cartDAO")
 
-public class CategoryDAOImpl implements CategoryDAO{
-	
-	//private static final Logger Logger = LoggerFactory.getLogger(CategoryDAOImpl.class);
-	
-	public CategoryDAOImpl()
-	{
-		
-	}
+public class CartDAOImpl implements CartDAO{
 	
 	@Autowired
-	private SessionFactory sessionFactory;
+	SessionFactory sessionFactory;
 	
-	public CategoryDAOImpl(SessionFactory sessionFactory)
+	public CartDAOImpl(SessionFactory sessionFactory)
 	{
 		
 			this.sessionFactory=sessionFactory;
@@ -32,16 +25,16 @@ public class CategoryDAOImpl implements CategoryDAO{
 	}
 
 	@Transactional
-	public boolean save(Category category) {
+	public boolean save(Cart cart) {
 		
 	try{
 		/*
-		if(get(category.getId())!=null)
+		if(get(cart.getId())!=null)
 		{
 			return false;
 		}*/
 		
-		sessionFactory.getCurrentSession().save(category);
+		sessionFactory.getCurrentSession().save(cart);
 		
 		return true;
 		
@@ -62,49 +55,49 @@ public class CategoryDAOImpl implements CategoryDAO{
 	
 	@Transactional
 	
-	public boolean update(Category category) {
+	public boolean update(Cart cart) {
 		
 		try{
-			if(get(category.getId())!=null)
-			{
-				return false;
-			}
-			
-			sessionFactory.openSession().update(category);
-			
-			return true;
-			
-		}
-		
-		catch (Exception e){
-			
-			e.printStackTrace();
-			
-			return false;
-			
-		}
-		
-		
-	}
-	
-	@Transactional
-
-	public Category get(String id) {
-		
-		return(Category) sessionFactory.openSession().get(Category.class,id);
-	}
-	
-	
-	@Transactional
-	public boolean delete(Category category) {
-		
-		try{
-			/*if(get(category.getId())!=null)
+			/*if(get(cart.getId())!=null)
 			{
 				return false;
 			}*/
 			
-			sessionFactory.openSession().delete(category);
+			sessionFactory.openSession().update(cart);
+			
+			return true;
+			
+		}
+		
+		catch (Exception e){
+			
+			e.printStackTrace();
+			
+			return false;
+			
+		}
+		
+		
+	}
+	
+	@Transactional
+
+	public Cart get(String id) {
+		
+		return(Cart) sessionFactory.openSession().get(Cart.class,id);
+	}
+	
+	
+	@Transactional
+	public boolean delete(Cart cart) {
+		
+		try{
+			/*if(get(cart.getId())!=null)
+			{
+				return false;
+			}*/
+			
+			sessionFactory.openSession().delete(cart);
 			
 			return true;
 			
@@ -120,10 +113,10 @@ public class CategoryDAOImpl implements CategoryDAO{
 		
 	}
 
-	public List<Category> list() {
+	public List<Cart> list() {
 		return null;
 		
-		/*String hql="from category";
+		/*String hql="from cart";
 		
 		Query query=sessionFactory.getCurrentSession().createQuery(hql);
 		
@@ -133,3 +126,4 @@ public class CategoryDAOImpl implements CategoryDAO{
 	}
 
 }
+
