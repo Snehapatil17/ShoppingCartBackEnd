@@ -1,6 +1,6 @@
-package com.niit.backend;
+/*package com.niit.backend;
 
-/*import static org.junit.Assert.*;*/
+import static org.junit.Assert.*;
 
 import org.junit.Assert;
 import org.junit.BeforeClass;
@@ -59,14 +59,14 @@ public class SupplierTestCases {
 	}
 	
 
-	/*@Test
+	@Test
 	public void deleteSupplierTestCase()
 	{
 		supplier.setId("11");
 		boolean status = SupplierDAO.delete(supplier);
 		
 		Assert.assertEquals("delete supplier Test case",true, status);
-	}*/
+	}
 
 
 
@@ -80,3 +80,4 @@ public class SupplierTestCases {
 
 
 
+*/

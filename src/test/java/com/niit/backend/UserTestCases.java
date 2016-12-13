@@ -1,4 +1,4 @@
-package com.niit.backend;
+/*package com.niit.backend;
 
 //import static org.junit.Assert.*;
 
@@ -65,7 +65,7 @@ public class UserTestCases {
 	
 	
 
-	/*@Test
+	@Test
 	public void deleteUserTestCase()
 	{
 		user.setId("4");
@@ -73,10 +73,11 @@ public class UserTestCases {
 		
 		Assert.assertEquals("delete User Test case",true, status);
 	}
-*/
+
 
 
 		
 	
 
 }
+*/

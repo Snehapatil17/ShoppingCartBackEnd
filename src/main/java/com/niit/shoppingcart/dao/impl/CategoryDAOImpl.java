@@ -2,45 +2,51 @@ package com.niit.shoppingcart.dao.impl;
 
 import java.util.List;
 
+import org.hibernate.HibernateException;
+import org.hibernate.Query;
 import org.hibernate.SessionFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
+import org.springframework.transaction.annotation.EnableTransactionManagement;
 import org.springframework.transaction.annotation.Transactional;
 
 import com.niit.shoppingcart.dao.CategoryDAO;
 import com.niit.shoppingcart.model.Category;
 
-@Repository("categoryDAO")
 
+
+
+@EnableTransactionManagement
+@Repository
 public class CategoryDAOImpl implements CategoryDAO{
+	
+	public CategoryDAOImpl() {
+		// TODO Auto-generated constructor stub
+	}
+
 	
 	//private static final Logger Logger = LoggerFactory.getLogger(CategoryDAOImpl.class);
 	
-	public CategoryDAOImpl()
-	{
-		
-	}
 	
 	@Autowired
-	private SessionFactory sessionFactory;
+ SessionFactory sessionFactory;
+	  
 	
 	public CategoryDAOImpl(SessionFactory sessionFactory)
 	{
-		
-			this.sessionFactory=sessionFactory;
-		
+		this.sessionFactory=sessionFactory;
 	}
 
 	@Transactional
 	public boolean save(Category category) {
 		
 	try{
-		/*
+		
 		if(get(category.getId())!=null)
 		{
 			return false;
-		}*/
-		
+		}
+		  
 		sessionFactory.getCurrentSession().save(category);
 		
 		return true;
@@ -61,7 +67,6 @@ public class CategoryDAOImpl implements CategoryDAO{
 	
 	
 	@Transactional
-	
 	public boolean update(Category category) {
 		
 		try{
@@ -99,18 +104,18 @@ public class CategoryDAOImpl implements CategoryDAO{
 	public boolean delete(Category category) {
 		
 		try{
-			/*if(get(category.getId())!=null)
+			if(get(category.getId())!=null)
 			{
 				return false;
-			}*/
+			}
 			
-			sessionFactory.openSession().delete(category);
+			sessionFactory.getCurrentSession().delete(category);
 			
 			return true;
 			
 		}
 		
-		catch (Exception e){
+		catch (HibernateException e){
 			
 			e.printStackTrace();
 			
@@ -119,17 +124,33 @@ public class CategoryDAOImpl implements CategoryDAO{
 		}
 		
 	}
-
+	@Transactional
 	public List<Category> list() {
-		return null;
+		//return null;
 		
-		/*String hql="from category";
+		System.out.println("In list");
+		String hql="from category";
 		
 		Query query=sessionFactory.getCurrentSession().createQuery(hql);
 		
-		return query.list();*/
+		return query.list();
 		
 		
 	}
+	
+	@Transactional
+	public boolean delete(String id) {
+		// TODO Auto-generated method stub
+		return false;
+	}
 
+	/*@Override
+	public boolean delete(String id) {
+		// TODO Auto-generated method stub
+		return false;
+	}
+*/
 }
+
+	
+

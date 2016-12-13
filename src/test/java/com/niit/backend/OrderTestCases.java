@@ -8,21 +8,23 @@ import org.junit.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.AnnotationConfigApplicationContext;
 
-import com.niit.shoppingcart.dao.ProductDAO;
-import com.niit.shoppingcart.model.Product;
+import com.niit.shoppingcart.model.Order;
+import com.niit.shoppingcart.dao.OrderDAO;
 
-public class ProductTestCases {
+
+
+public class OrderTestCases {
 
 	@Autowired
 	 static AnnotationConfigApplicationContext context;
 	
 	
 	@Autowired
-	static Product product;
+	static Order order;
 	
 	
 	@Autowired
-	static ProductDAO productDAO;
+	static OrderDAO orderDAO;
 
 
 	
@@ -34,25 +36,27 @@ public class ProductTestCases {
 		 context.scan("com.niit");
 		 context.refresh();
 		 
-		 productDAO  = (ProductDAO) context.getBean("productDAO");
+		 orderDAO  = (OrderDAO) context.getBean("orderDAO");
 		 
-		 product  = (Product) context.getBean("product");
+		 order  = (Order) context.getBean("order");
 		 
 		 System.out.println("The object is created");
 	 }
 
 	@Test
-	public void createProductTestCase()
+	public void createOrderTestCase()
 	{
-		product.setId("65");
+		order.setId("1001");
 		
-		product.setName("jacket");
+		order.setBillingaddress("Pune");
 		
-		product.setPrice("750");
+		order.setShippingaddress("Dhanori");
 		
-		Boolean status = productDAO.save(product);
+		order.setPaymentmode("COD");
 		
-		Assert.assertEquals("createProductTestcase", true, status);
+		Boolean status = orderDAO.save(order);
+		
+		Assert.assertEquals("createOrderTestcase", true, status);
 	}
 	
 	

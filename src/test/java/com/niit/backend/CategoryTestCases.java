@@ -1,6 +1,6 @@
-package com.niit.backend;
+/*package com.niit.backend;
 
-/*import static org.junit.Assert.*;*/
+import static org.junit.Assert.*;
 
 
 import org.junit.Assert;
@@ -48,7 +48,7 @@ public class CategoryTestCases {
 	@Test
 	public void createCategoryTestCase()
 	{
-		category.setId("5");
+		category.setId("6");
 		
 		category.setName("Plazo");
 		
@@ -61,7 +61,7 @@ public class CategoryTestCases {
 	
 	
 
-	/*@Test
+	@Test
 	public void deleteCategoryTestCase()
 	{
 		category.setId("4");
@@ -69,7 +69,7 @@ public class CategoryTestCases {
 		
 		Assert.assertEquals("delete Category Test case",true, status);
 	}
-*/
+
 
 
 
@@ -82,3 +82,4 @@ public class CategoryTestCases {
 
 
 
+*/

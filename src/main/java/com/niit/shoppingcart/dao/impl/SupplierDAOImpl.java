@@ -124,6 +124,11 @@ import com.niit.shoppingcart.model.Supplier;
 			
 			
 		}
+
+		public boolean delete(String id) {
+			// TODO Auto-generated method stub
+			return false;
+		}
 	}
 	
 
