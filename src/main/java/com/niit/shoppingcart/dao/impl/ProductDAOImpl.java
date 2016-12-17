@@ -3,6 +3,7 @@ package com.niit.shoppingcart.dao.impl;
 import java.util.List;
 
 import org.hibernate.HibernateException;
+import org.hibernate.Query;
 import org.hibernate.SessionFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
@@ -113,14 +114,17 @@ public class ProductDAOImpl implements ProductDAO {
 	}
 
 	public List<Product> list() {
-		return null;
 		
-		/*String hql="from product";
+		
+		System.out.println("In product List fun");
+		System.out.println("In list");
+		String hql="from Product";
 		
 		Query query=sessionFactory.getCurrentSession().createQuery(hql);
 		
 		return query.list();
-		*/
+		
+		
 		
 	}
 

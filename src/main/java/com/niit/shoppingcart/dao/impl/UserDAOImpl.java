@@ -2,6 +2,7 @@ package com.niit.shoppingcart.dao.impl;
 
 import java.util.List;
 
+import org.hibernate.Query;
 import org.hibernate.SessionFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
@@ -116,13 +117,13 @@ import com.niit.shoppingcart.model.User;
 		}
 
 		public List<User> list() {
-			return null;
 			
-			/*String hql="from user";
+			
+			String hql="from user";
 			
 			Query query=sessionFactory.getCurrentSession().createQuery(hql);
 			
-			return query.list();*/
+			return query.list();
 			
 			
 		}

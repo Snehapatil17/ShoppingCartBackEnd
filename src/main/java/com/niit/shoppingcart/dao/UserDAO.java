@@ -18,4 +18,5 @@ public interface UserDAO {
 		
 		public List<User> list();
 
+		
 }

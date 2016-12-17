@@ -15,6 +15,7 @@ import org.springframework.stereotype.Component;
 	public class User {
 		
 		@Id
+		@Column(name="Id")
 			private String id;
 		
 		@Column(name="name")
@@ -22,15 +23,13 @@ import org.springframework.stereotype.Component;
 		
 		@Column(name="password")
 			private String password;
+		
+		@Column(name="cpassword")
+		private String cpassword;
 			
 		@Column(name="emailid")
 			private String emailid;
 		
-		@Column(name="billingaddr")
-			private String billingaddr;
-		
-		@Column(name="shippingaddr")
-			private String shippingaddr;
 		
 		
 		
@@ -47,58 +46,39 @@ public String getId()
 	}
 	
 //-------------------------------------------------
-	public String getName()
-	{
+	
+	public String getCpassword() {
+		return cpassword;
+	}
+
+	public String getName() {
 		return name;
 	}
-	
-	public void setName(String name)
-	{
-		this.name=name;
+
+	public void setName(String name) {
+		this.name = name;
 	}
-	
-//-------------------------------------------		
-	public String getPassword()
-	{
+
+	public String getPassword() {
 		return password;
 	}
-	
-	public void setPassword(String password)
-	{
-		this.password=password;
+
+	public void setPassword(String password) {
+		this.password = password;
 	}
-//------------------------------------------------------
-	
-	public String getBillingaddr()
-	{
-		return billingaddr;
-	}
-	
-	public void setBillingaddr(String billingaddr)
-	{
-		this.billingaddr=billingaddr;
-	}
-//-------------------------------------------------------
-	
-	public String getShippingaddr()
-	{
-		return shippingaddr;
-	}
-	
-	public void setShippingaddr(String shippingaddr)
-	{
-		this.shippingaddr=shippingaddr;
-	}
-//--------------------------------------------------------------
-	public String getEmailid()
-	{
+
+	public String getEmailid() {
 		return emailid;
 	}
-	
-	public void setEmailid(String emailid)
-	{
-		this.emailid=emailid;
+
+	public void setEmailid(String emailid) {
+		this.emailid = emailid;
 	}
+
+	public void setCpassword(String cpassword) {
+		this.cpassword = cpassword;
+	}
+
 	
 	
 	
